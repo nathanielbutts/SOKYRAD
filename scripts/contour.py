@@ -11,7 +11,7 @@ from array import array
 import seaborn as sns
 from scipy.interpolate import griddata
 
-dir = '/home/nathan/Documents/astro/analysis/2024.01.24-ap-st_data/data/'
+dir = '../data/'
 filename = 'Skynet_59735_AP_-_ST3_81159_29887.A.raw.txt'
 
 def read_raw(path):
