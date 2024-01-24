@@ -14,7 +14,7 @@ from scipy import interpolate
 dir = '/home/nathan/Documents/astro/analysis/2024.01.24-ap-st_data/data/'
 filename = 'Skynet_59735_AP_-_ST3_81159_29887.A.cal.txt'
 #path = str(dir + filename)
-
+dataurl = 'https://www.gb.nrao.edu/20m/peak/AP_-_ST3/Skynet_59735_AP_-_ST3_81159_29887.A.cal.txt'
 
 # Data starts at line 68
 # Column definitions
@@ -147,7 +147,9 @@ def create_xyz(data):
 
 def main():
     path = str(dir+filename)
-    plot_list = read_raw(path)
+    #plot_list = read_raw(path)
+    contour_data = pd.read_csv(data_url)
+    print(contour_data.head())
 
     out_list = []
 
@@ -169,10 +171,10 @@ def main():
             pass
     
     # Convert list to dataframe
-    df = pd.DataFrame(out_list, columns=["time", "ra", "dec", "xx1", "yy1", "xx2", "yy2", "cal"])
+    #df = pd.DataFrame(out_list, columns=["time", "ra", "dec", "xx1", "yy1", "xx2", "yy2", "cal"])
 
     # create_scatter(df)
-    create_contour(df)
+    #create_contour(df)
     # create_displot(df)
     # create_histplot(df)
     #create_kde(df)
