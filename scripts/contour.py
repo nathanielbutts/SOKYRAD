@@ -259,7 +259,7 @@ def main():
     # options for plots
     target = 'Horsehead Nebula Barnard 33'
     method = 'linear' # 'nearest', linear', 'cubic'
-    levels = 15
+    levels = 20
     #viridis = cm._colormaps['viridis'].resampled(4)
     cmap = 'CMRmap' #RdBu_r, cool, coolwarm, tab10, tab20, tab20b, tab20c
     linestyle = 'dashed' # None, 'solid', 'dashed', 'dashdot', 'dotted' 
@@ -269,8 +269,8 @@ def main():
     alt_min = 120
     alt_max = 152.5
 
-    #create_contourf(df, method, levels, cmap, grid, clabel, target, polar_chan)
-    create_contour_combined(df, method, levels, cmap, linestyle, grid, clabel, target, polar_chan)
+    create_contourf(df, method, levels, cmap, grid, clabel, target, polar_chan)
+    #create_contour_combined(df, method, levels, cmap, linestyle, grid, clabel, target, polar_chan)
     #create_contour(df, method, levels, cmap, linestyle, grid, clabel, target)
 
 if __name__ == '__main__':
