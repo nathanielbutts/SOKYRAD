@@ -9,10 +9,10 @@ from matplotlib import cm
 from matplotlib.colors import LinearSegmentedColormap, ListedColormap
 from array import array
 import seaborn as sns
-from scipy.interpolate import griddata
+from scipy.interpolate import griddata, RBFInterpolator, InterpolatedUnivariateSpline, interp2d
 
 dir = '../data/'
-filename = 'Skynet_60333_barnard_33-nb_107271_56634.A.cal.txt'
+filename = 'Skynet_60335_crab_108895_58585.htA.raw.txt'
 dataurl = 'https://www.gb.nrao.edu/20m/peak/AP_-_ST3/Skynet_59735_AP_-_ST3_81159_29887.A.cal.txt'
 
 def read_raw(path):
@@ -41,7 +41,7 @@ def read_raw(path):
 
     return outlist
 
-def create_contour(data, method, levels, cmap, linestyle, grid, clabel, target, polar_chan):
+def create_contour(data, method, levels, cmap, linestyle, grid, clabel, target, polar_chan, meshlev):
     # Extracting RA, DEC, and power data from columns
     #data.to_numpy()
     print(data)
@@ -61,13 +61,15 @@ def create_contour(data, method, levels, cmap, linestyle, grid, clabel, target, 
     ra_min, ra_max = ra.min(), ra.max()
     dec_min, dec_max = dec.min(), dec.max()
 
-    ra_grid, dec_grid = np.meshgrid(np.linspace(ra_min, ra_max,10), np.linspace(dec_min, dec_max, 10))
+    ra_grid, dec_grid = np.meshgrid(np.linspace(ra_min, ra_max,meshlev), np.linspace(dec_min, dec_max, meshlev))
 
     # Interpolating power data to fill missing values
     power_interp0 = griddata((ra, dec), power0, (ra_grid, dec_grid), method=method) #xx1
 
     # Plotting the contour plot
-    CS = plt.contour(ra_grid, dec_grid, power_interp0, cmap='Grays', levels=levels, linestyles=linestyle)
+    #plt.plot(ra_grid, dec_grid, 'o', markersize=2, color='lightgrey')
+    #ax.tricontour(x, y, z, levels=levels)
+    CS = plt.tricontour(ra_grid, dec_grid, power_interp0,levels=levels, linestyles=linestyle)
     plt.colorbar(label='Power')
     plt.gca().invert_xaxis()
     plt.xlabel('RA')
@@ -79,7 +81,7 @@ def create_contour(data, method, levels, cmap, linestyle, grid, clabel, target, 
         plt.clabel(CS, fontsize=9, inline=True)
     plt.show()
 
-def create_contourf(data, method, levels, cmap, grid, clabel, target, polar_chan):
+def create_contourf(data, method, levels, cmap, grid, clabel, target, polar_chan, meshlev):
     # Extracting RA, DEC, and power data from columns
     #data.to_numpy()
     print(data)
@@ -99,17 +101,21 @@ def create_contourf(data, method, levels, cmap, grid, clabel, target, polar_chan
     ra_min, ra_max = ra.min(), ra.max()
     dec_min, dec_max = dec.min(), dec.max()
 
-    ra_grid, dec_grid = np.meshgrid(np.linspace(ra_min, ra_max, 1000), np.linspace(dec_min, dec_max, 1000))
+    ra_grid, dec_grid = np.meshgrid(np.linspace(ra_min, ra_max, meshlev), np.linspace(dec_min, dec_max, meshlev))
+    
+    rbf = RBFInterpolator(ra_grid, power0, epsilon=2)
+    z_i = rfb(ra_grid)
 
     # Interpolating power data to fill missing values
     power_interp0 = griddata((ra, dec), power0, (ra_grid, dec_grid), method=method) #xx1
 
+
     # Plotting the contour plot
-    norm = cm.colors.Normalize(vmin=power0.min(), vmax=power0.max())
     CS = plt.contourf(ra_grid, dec_grid, power_interp0, cmap=cmap, levels=levels, vmin=power0.min())
     plt.xlabel('RA')
     plt.ylabel('DEC')
-    plt.title('Contour Fill Plot - Object: {} - {} Levels {} method'.format(target, levels, method))
+    plt.title('{} - {} Levels {} method'.format(target, levels, method))
+    plt.pcolor(ra_grid, dec_grid, power_interp0, vmin=power0.min(), vmax=power0.max())
     plt.colorbar(label='Power')
     plt.gca().invert_xaxis()
     if grid:
@@ -230,6 +236,38 @@ def create_contourf_all(data):
 
     plt.show()
 
+def test_interp(f, xnew, ynew):
+    # Extracting RA, DEC, and power data from columns
+    #data.to_numpy()
+    print(data)
+    ra = data.iloc[:, 1]
+    dec = data.iloc[:, 2]
+    if polar_chan == 'xx1':
+        chan = 3
+    elif polar_chan == 'yy1':
+        chan = 4
+    elif polar_chan == 'xx2':
+        chan = 5
+    else:
+        chan = 6
+    power0 = data.iloc[:, chan] # xx1
+
+    x = np.arange(-5.01, 5.01, 0.25)
+    y = np.arange(-5.01, 7.51, 0.25)
+    xx, yy = np.meshgrid(x, y)
+    f = interp2d(x, y, z, kind='cubic')
+
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(8, 4))
+    znew = f(xnew, ynew)
+
+    ax1.plot(x, z[0, :], 'ro-', xnew, znew[0, :], 'b-')
+
+    im = ax2.imshow(znew)
+    plt.colorbar(im, ax=ax2)
+
+    plt.show()
+    return znew
+
 def main():
     path = str(dir+filename)
     plot_list = read_raw(path)
@@ -257,21 +295,24 @@ def main():
     df = pd.DataFrame(out_list, columns=["time", "ra", "dec", "xx1", "yy1", "xx2", "yy2", "cal"])
 
     # options for plots
-    target = 'Horsehead Nebula Barnard 33'
-    method = 'linear' # 'nearest', linear', 'cubic'
-    levels = 20
+   
+    method = 'cubic' # 'nearest', linear', 'cubic'
+    levels = 100
     #viridis = cm._colormaps['viridis'].resampled(4)
-    cmap = 'CMRmap' #RdBu_r, cool, coolwarm, tab10, tab20, tab20b, tab20c
+    cmap = 'jet' #RdBu_r, cool, coolwarm, tab10, tab20, tab20b, tab20c, CMRmap
     linestyle = 'dashed' # None, 'solid', 'dashed', 'dashdot', 'dotted' 
     grid = True #set to True to put a square grid on the plot
     clabel = True #set to True to have contour levels numbered on the plot.  only works if levels < 11
     polar_chan = "xx1"
     alt_min = 120
     alt_max = 152.5
+    meshlev = 100
 
-    #create_contourf(df, method, levels, cmap, grid, clabel, target, polar_chan)
-    create_contour_combined(df, method, levels, cmap, linestyle, grid, clabel, target, polar_chan)
-    #create_contour(df, method, levels, cmap, linestyle, grid, clabel, target)
+    target = 'Mesh level {} Barnard 33'.format(meshlev)
+
+    #create_contourf(df, method, levels, cmap, grid, clabel, target, polar_chan, meshlev)
+    #create_contour_combined(df, method, levels, cmap, linestyle, grid, clabel, target, polar_chan)
+    create_contour(df, method, levels, cmap, linestyle, grid, clabel, target, polar_chan, meshlev)
 
 if __name__ == '__main__':
     main()

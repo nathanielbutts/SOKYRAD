@@ -1,7 +1,7 @@
 # First test  for pyplot
 
 import matplotlib.pyplot as plt
-import os, csv
+import os, csv, sys, urllib.request
 import numpy as np
 import pandas as pd
 from itertools import count
@@ -13,7 +13,33 @@ from scipy.interpolate import griddata
 
 dir = '../data/'
 filename = 'Skynet_60333_barnard_33-nb_107271_56634.A.cal.txt'
-dataurl = 'https://www.gb.nrao.edu/20m/peak/AP_-_ST3/Skynet_59735_AP_-_ST3_81159_29887.A.cal.txt'
+
+dataurl = 'https://www.gb.nrao.edu/20m/peak/BARNARD_33-NB/Skynet_60333_barnard_33-nb_107271_56634.A.html'
+
+
+def retrieve_file(path, lastpath, filelist):
+    if not os.path.isdir('.tmp'):
+        os.mkdir('.tmp')
+        print('Created .tmp directory')
+    else:
+        print('.tmp directory exists')
+    for filename in filelist:
+        fullpath = path + filename
+        with urllib.request.urlopen(fullpath) as f: #maybe just use requests.get(url,stream=True)??  https://stackoverflow.com/questions/30229231/python-save-image-from-url
+            print("Downloading: {}".format(fullpath))
+            html = f.read().decode('utf-8')
+            f = open(str('.tmp/' + lastpath + filename), 'w')
+            f.write(html)
+
+def parse_address(dataurl):
+    last_occurrence_index = dataurl.rfind('/')
+    second_to_last_occurrence_index = dataurl.rfind('/', 0, last_occurrence_index)
+
+    mainpath = 'https://www.gb.nrao.edu/20m/peak'
+    secondpath = dataurl[second_to_last_occurrence_index:-6]
+    lastpath = dataurl[last_occurrence_index:-1]
+
+    return mainpath, secondpath, lastpath
 
 def read_raw(path):
     outlist = []
@@ -61,13 +87,13 @@ def create_contour(data, method, levels, cmap, linestyle, grid, clabel, target, 
     ra_min, ra_max = ra.min(), ra.max()
     dec_min, dec_max = dec.min(), dec.max()
 
-    ra_grid, dec_grid = np.meshgrid(np.linspace(ra_min, ra_max,10), np.linspace(dec_min, dec_max, 10))
+    ra_grid, dec_grid = np.meshgrid(np.linspace(ra_min, ra_max,100), np.linspace(dec_min, dec_max, 100))
 
     # Interpolating power data to fill missing values
     power_interp0 = griddata((ra, dec), power0, (ra_grid, dec_grid), method=method) #xx1
 
     # Plotting the contour plot
-    CS = plt.contour(ra_grid, dec_grid, power_interp0, cmap='Grays', levels=levels, linestyles=linestyle)
+    CS = plt.contour(ra_grid, dec_grid, power_interp0, cmap=cmap, levels=levels, linestyles=linestyle)
     plt.colorbar(label='Power')
     plt.gca().invert_xaxis()
     plt.xlabel('RA')
@@ -231,6 +257,35 @@ def create_contourf_all(data):
     plt.show()
 
 def main():
+
+    mainpath, secondpath, lastpath = parse_address(dataurl)
+    path = mainpath + secondpath
+    # At this URL, after the last number digit and period in the url, you will have files with endings:
+    #    A.raw.txt, A.cal.txt, A.spect.cal.txt, A.caldata, A.cal_XX0_img.fits, A.cal_XX1_img.fits,  
+    #        A.cal_YY0_img.fits, A.cal_YY1_img.fits, cyb.txt, spect.cyb.txt
+    # You will also find these image files:
+    #    A.pow.png, A.path.png, A.spect.cal.png, A.cal_XX0_img.png, A.cal_XX1_img.png
+    #        A.cal_YY0_img.png, A.cal_YY1_img.png, cyb.txt.png, spect.cyb.txt.png
+
+    ### !!! Won't let me download FITS files.  Error in "html = f.read()" of retrieve_file function
+    ### Also won't download image files.
+    ### Need to diagnose this later.
+
+    filelist = ['A.cal.txt', 
+        'A.cal.txt', 
+        'A.spect.cal.txt', 
+        'A.caldata', 
+        #'A.cal_XX0_img.fits', 
+        #'A.cal_XX1_img.fits',
+        #'A.cal_YY0_img.fits', 
+        #'A.cal_YY1_img.fits',
+        'cyb.txt', 
+        'spect.cyb.txt']
+
+    retrieve_file(path, lastpath, filelist)
+
+    dir = '.tmp'
+    filename = str(lastpath + 'A.cal.txt') #do not use preceding . in filename
     path = str(dir+filename)
     plot_list = read_raw(path)
 
@@ -259,9 +314,9 @@ def main():
     # options for plots
     target = 'Horsehead Nebula Barnard 33'
     method = 'linear' # 'nearest', linear', 'cubic'
-    levels = 20
+    levels = 1000
     #viridis = cm._colormaps['viridis'].resampled(4)
-    cmap = 'CMRmap' #RdBu_r, cool, coolwarm, tab10, tab20, tab20b, tab20c
+    cmap = 'jet' #RdBu_r, cool, coolwarm, tab10, tab20, tab20b, tab20c
     linestyle = 'dashed' # None, 'solid', 'dashed', 'dashdot', 'dotted' 
     grid = True #set to True to put a square grid on the plot
     clabel = True #set to True to have contour levels numbered on the plot.  only works if levels < 11
@@ -269,9 +324,9 @@ def main():
     alt_min = 120
     alt_max = 152.5
 
-    #create_contourf(df, method, levels, cmap, grid, clabel, target, polar_chan)
-    create_contour_combined(df, method, levels, cmap, linestyle, grid, clabel, target, polar_chan)
-    #create_contour(df, method, levels, cmap, linestyle, grid, clabel, target)
+    create_contourf(df, method, levels, cmap, grid, clabel, target, polar_chan)
+    #create_contour_combined(df, method, levels, cmap, linestyle, grid, clabel, target, polar_chan)
+    #create_contour(df, method, levels, cmap, linestyle, grid, clabel, target, polar_chan)
 
 if __name__ == '__main__':
     main()

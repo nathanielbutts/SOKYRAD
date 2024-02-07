@@ -11,9 +11,8 @@ from array import array
 import seaborn as sns
 from scipy import interpolate
 
-dir = '/home/nathan/Documents/astro/analysis/2024.01.24-ap-st_data/data/'
-filename = 'Skynet_59735_AP_-_ST3_81159_29887.A.cal.txt'
-#path = str(dir + filename)
+dir = '../data/'
+filename = 'Skynet_60333_barnard_33-nb_107271_56634.A.cal.txt'
 dataurl = 'https://www.gb.nrao.edu/20m/peak/AP_-_ST3/Skynet_59735_AP_-_ST3_81159_29887.A.cal.txt'
 
 # Data starts at line 68
@@ -148,7 +147,7 @@ def create_xyz(data):
 def main():
     path = str(dir+filename)
     #plot_list = read_raw(path)
-    contour_data = pd.read_csv(data_url)
+    contour_data = pd.read_csv(path)
     print(contour_data.head())
 
     out_list = []
@@ -174,10 +173,10 @@ def main():
     #df = pd.DataFrame(out_list, columns=["time", "ra", "dec", "xx1", "yy1", "xx2", "yy2", "cal"])
 
     # create_scatter(df)
-    #create_contour(df)
+    create_contour(df)
     # create_displot(df)
     # create_histplot(df)
-    #create_kde(df)
+    # create_kde(df)
     # create_normplot(df)
 
 if __name__ == '__main__':
