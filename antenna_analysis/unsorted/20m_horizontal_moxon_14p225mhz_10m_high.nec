@@ -1,0 +1,20 @@
+CM 20m Horizontal Moxon Rectangle for 14.225 MHz
+CM Approximate NEC-2 starting model; optimize dimensions for your wire/tubing diameter and construction.
+CM Horizontally polarized, mounted flat 10 meters above ground.
+CM Coordinate system: X=width, Y=front/back, Z=height.
+CM Driven element at Y=0; reflector behind at Y=-2.920m.
+CM Dimensions: A width=7.950m, B driven tail=1.100m, C gap=0.360m, D reflector tail=1.460m, E spacing=2.920m
+CE
+GW 1 61 -3.9750 0.0000 10.0000 3.9750 0.0000 10.0000 0.00160
+GW 2 15 -3.9750 0.0000 10.0000 -3.9750 -1.1000 10.0000 0.00160
+GW 3 15 3.9750 0.0000 10.0000 3.9750 -1.1000 10.0000 0.00160
+GW 4 61 -3.9750 -2.9200 10.0000 3.9750 -2.9200 10.0000 0.00160
+GW 5 15 -3.9750 -2.9200 10.0000 -3.9750 -1.4600 10.0000 0.00160
+GW 6 15 3.9750 -2.9200 10.0000 3.9750 -1.4600 10.0000 0.00160
+GN 2 0 0 0 13 0.005
+GE 0
+LD 5 0 0 0 58000000
+EX 0 1 31 0 1 0
+FR 0 1 0 0 14.225 0
+RP 0 1 361 1000 10 0 0 1 0 1
+EN

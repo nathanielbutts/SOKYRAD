@@ -1,0 +1,21 @@
+CM Simple 28.4 MHz center-fed dip
+CM
+CM ! Written by EZNEC/Pro+ v. 7.0 in NEC-2 format.
+CM
+CM Generated for user request Assumptions used: - Feedpoint height: 10.0 m
+CM above average ground - Wire modeled as 16 AWG copper (diameter ~1.291
+CM mm) - "Insulated wire" approximated by slightly shortening each 1/4-wave
+CM leg to 2.561 m instead of free-space quarter-wave (~2.64 m) - 1:1 balun
+CM represented as an ideal center-fed balanced source - Dipole oriented
+CM along X axis Coordinates are in meters. Feedpoint is split by a small
+CM gap and excited in the center.
+CE
+GW 1,21,0.,0.,3.5,2.502,0.,3.5,.0006455
+GW 2,21,0.,0.,3.5,-2.502,0.,3.5,.0006455
+GE 1
+LD 5,0,1,42,5.7471E+7,1.
+FR 0,1,0,0,28.46
+GN 2,0,0,0,13.,.005
+EX 0,1,1,0,.9999999,0.
+RP 0,19,73,1001,0.,0.,5.,5.,0.
+EN

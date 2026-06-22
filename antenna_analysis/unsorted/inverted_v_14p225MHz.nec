@@ -1,0 +1,15 @@
+CM Inverted-V dipole for 14.225 MHz
+CM Total starting length: 10.028 m (32.90 ft), each leg 5.014 m
+CM Legs slope 30 degrees below horizon; endpoints 1.0 m AGL; apex 3.507 m AGL
+CM Coordinates are meters. Wire radius = 1.0 mm.
+CE
+GW 1 21 -4.342194 0.000000 1.000000 0.000000 0.000000 3.506967 0.001000
+GW 2 21 0.000000 0.000000 3.506967 4.342194 0.000000 1.000000 0.001000
+GE 1
+GN 2 0 0 0 13.000000 0.005000
+EK
+EX 0 1 21 0 0.500000 0.000000
+EX 0 2 1 0 0.500000 0.000000
+FR 0 1 0 0 14.225000 0
+RP 0 181 361 1000 -90.000000 0.000000 1.000000 1.000000
+EN

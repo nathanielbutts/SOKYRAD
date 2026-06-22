@@ -1,0 +1,36 @@
+CM 80 m delta loop antenna, vertical triangle
+CM Modified per user request: top corner changed to 10 m above ground
+CM
+CM User-specified design:
+CM - Delta loop for 80 m
+CM - Top corner height: 10.00 m
+CM - Bottom wire height: 1.00 m
+CM - Feedpoint: 1/4 wavelength from top corner
+CM
+CM Assumptions used:
+CM - Target frequency: 3.900 MHz
+CM - Full-wave loop perimeter calculated as 1005 / MHz
+CM - Total loop perimeter: 257.69 ft (78.5446 m)
+CM - Symmetric triangular loop in the X-Z vertical plane
+CM - Bottom wire is horizontal
+CM - Calculated bottom wire length: 37.2098 m
+CM - Calculated sloping side length: 20.6674 m
+CM - Wire diameter assumed 3 mm, radius 0.0015 m
+CM - Ground: average ground
+CM
+CM Coordinates are in meters.
+CM Feedpoint is represented by a short 2 cm wire segment on the right sloping side.
+CM Source is applied to that short feed segment.
+CM
+CE
+GW 1 39  0.0000 0.0000 10.0000  17.6675 0.0000 1.4534  0.0015
+GW 2 1   17.6675 0.0000 1.4534  17.6855 0.0000 1.4447  0.0015
+GW 3 39  17.6855 0.0000 1.4447  18.6049 0.0000 1.0000  0.0015
+GW 4 79  18.6049 0.0000 1.0000  -18.6049 0.0000 1.0000  0.0015
+GW 5 79  -18.6049 0.0000 1.0000  0.0000 0.0000 10.0000  0.0015
+GE 0
+GN 2 0 0 0 0.005 13
+FR 0 1 0 0 3.900 0
+EX 0 2 1 0 1.0 0
+RP 0 91 181 1000 0 0 1 2
+EN

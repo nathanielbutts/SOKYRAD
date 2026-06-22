@@ -1,0 +1,35 @@
+CM Multiband fan dipole: 80, 40, 20, 10, and 6 m
+CM Generated for user request
+CM
+CM Assumptions used:
+CM - Feedpoint / 1:1 voltage balun height: 20.00 m above average ground
+CM - Height chosen as practical multiband optimum/compromise
+CM - 1:1 voltage balun represented as an ideal center voltage source
+CM - Fan wires are horizontal and spread in azimuth to reduce interaction
+CM - Wire modeled as approx. 16 AWG, radius 0.0006455 m
+CM - Leg lengths calculated as 234/f_MHz ft with 0.97 shortening factor
+CM - Ground: average ground
+CE
+GW 1 1 -0.0200 0.0000 20.0000 0.0200 0.0000 20.0000 0.0006455
+CM 80m dipole, target 3.900 MHz, each leg 58.20 ft / 17.7394 m, azimuth 0.0 deg
+GW 2 31 -0.0200 0.0000 20.0000 -17.7594 0.0000 20.0000 0.0006455
+GW 3 31 0.0200 0.0000 20.0000 17.7594 0.0000 20.0000 0.0006455
+CM 40m dipole, target 7.200 MHz, each leg 31.52 ft / 9.6088 m, azimuth 8.0 deg
+GW 4 31 -0.0200 0.0000 20.0000 -9.5353 -1.3373 20.0000 0.0006455
+GW 5 31 0.0200 0.0000 20.0000 9.5353 1.3373 20.0000 0.0006455
+CM 20m dipole, target 14.200 MHz, each leg 15.98 ft / 4.8721 m, azimuth -8.0 deg
+GW 6 31 -0.0200 0.0000 20.0000 -4.8447 0.6781 20.0000 0.0006455
+GW 7 31 0.0200 0.0000 20.0000 4.8447 -0.6781 20.0000 0.0006455
+CM 10m dipole, target 28.400 MHz, each leg 7.99 ft / 2.4360 m, azimuth 16.0 deg
+GW 8 31 -0.0200 0.0000 20.0000 -2.3617 -0.6715 20.0000 0.0006455
+GW 9 31 0.0200 0.0000 20.0000 2.3617 0.6715 20.0000 0.0006455
+CM 6m dipole, target 50.313 MHz, each leg 4.51 ft / 1.3751 m, azimuth -16.0 deg
+GW 10 31 -0.0200 0.0000 20.0000 -1.3418 0.3790 20.0000 0.0006455
+GW 11 31 0.0200 0.0000 20.0000 1.3418 -0.3790 20.0000 0.0006455
+GE 0
+GN 2 0 0 0 0.005 13
+CM Frequency sweep from 3.9 MHz to 50.313 MHz in 5 steps
+FR 0 5 0 0 3.900 11.60325
+EX 0 1 1 0 1.0 0
+RP 0 91 181 1000 0 0 1 2
+EN

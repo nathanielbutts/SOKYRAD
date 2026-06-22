@@ -1,0 +1,25 @@
+CM Custom 28.4 MHz hybrid dipole / inverted-V antenna
+CM Modified per user request: each leg is now 1/8 wavelength instead of 1/4 wavelength
+CM
+CM Assumptions used:
+CM - Feedpoint height: 10.0 m above average ground
+CM - Angled legs slope downward 45 degrees from horizontal
+CM - Wire modeled as 16 AWG copper (diameter ~1.291 mm)
+CM - "Insulated wire" approximated by slightly shortening each 1/8-wave leg
+CM   to 1.2805 m instead of free-space eighth-wave (~1.32 m)
+CM - Geometry is symmetric about the feedpoint
+CM
+CM Coordinates are in meters.
+CM Feedpoint is split by a small gap and excited in the center.
+CM
+CE
+GW 1 21  -0.001  0.000 10.000  -1.2805  0.000 10.000  0.0006455
+GW 2 21  -0.001  0.000 10.000  -0.9055  0.000 9.0945  0.0006455
+GW 3 21   0.001  0.000 10.000   1.2805  0.000 10.000  0.0006455
+GW 4 21   0.001  0.000 10.000   0.9055  0.000 9.0945  0.0006455
+GE 0
+GN 2 0 0 0 0.005 13
+FR 0 1 0 0 28.4 0
+EX 0 1 1 0 1.0 0
+RP 0 91 1 1000 0 0 1 1
+EN

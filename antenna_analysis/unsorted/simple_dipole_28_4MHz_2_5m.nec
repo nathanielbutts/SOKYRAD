@@ -1,0 +1,23 @@
+CM Simple 28.4 MHz center-fed dipole
+CM Generated for user request
+CM
+CM Assumptions used:
+CM - Feedpoint height: 2.5 m above average ground
+CM - Wire modeled as 16 AWG copper (diameter ~1.291 mm)
+CM - "Insulated wire" approximated by slightly shortening each 1/4-wave leg
+CM   to 2.561 m instead of free-space quarter-wave (~2.64 m)
+CM - 1:1 balun represented as an ideal center-fed balanced source
+CM - Dipole oriented along X axis
+CM
+CM Coordinates are in meters.
+CM Feedpoint is split by a small gap and excited in the center.
+CM
+CE
+GW 1 21  -0.001  0.000 2.500  -2.561  0.000 2.500  0.0006455
+GW 2 21   0.001  0.000 2.500   2.561  0.000 2.500  0.0006455
+GE 0
+GN 2 0 0 0 0.005 13
+FR 0 1 0 0 28.4 0
+EX 0 1 1 0 1.0 0
+RP 0 91 1 1000 0 0 1 1
+EN

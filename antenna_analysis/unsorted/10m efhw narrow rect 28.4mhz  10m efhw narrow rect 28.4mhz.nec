@@ -1,0 +1,34 @@
+CM 10m efhw narrow rect 28.4mhz
+CM
+CM ! Written by EZNEC/Pro+ v. 7.0 in NEC-2 format.
+CM
+CM ! Wire #6 for I srcs, shorted/open TL, and/or parallel loads.
+CM ! NT #1-2 are EZNEC current sources
+CM
+CM Generated for user request
+CM 
+CM Assumptions used: - Feedpoint height: 10 ft (3.0480 m) above average
+CM ground - Total wire length: 5.1220 m (approx. 1/2 wavelength, slightly
+CM shortened) - First half of wire runs parallel to ground at feedpoint
+CM height - End of wire bends downward to form an inverted-L shape -
+CM Horizontal section length: 2.5610 m - Vertical downward section length:
+CM 2.5610 m - Wire radius modeled as 0.0006455 m (approx. 16 AWG) - Ground:
+CM average ground - Feed is placed at one end of the wire to represent EFHW
+CM excitation
+CE
+GW 1,21,10.,0.,10.,10.,0.,9.,.0006455
+GW 2,21,10.,0.,10.,1.85,0.,10.,.0006455
+GW 3,21,1.85,0.,10.,1.85,0.,9.575,.0006455
+GW 4,21,10.,0.,9.,1.85,0.,9.,.0006455
+GW 5,21,1.85,0.,9.,1.85,0.,9.425,.0006455
+GW 6,4,1055.607,1055.607,1055.607,1055.649,1055.649,1055.649,.00105561
+GE 1
+LD 5,0,1,105,5.7471E+7,1.
+FR 0,1,0,0,28.4
+GN 2,0,0,0,13.,.005
+EX 0,6,2,0,0.,1.414214
+EX 0,6,3,0,0.,1.414214
+NT 6,2,3,21,0.,0.,0.,1.,0.,0.
+NT 6,3,5,21,0.,0.,0.,1.,0.,0.
+RP 0,19,73,1001,0.,0.,5.,5.,0.
+EN

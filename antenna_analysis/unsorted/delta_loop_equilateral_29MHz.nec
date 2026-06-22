@@ -1,0 +1,29 @@
+CM 29 MHz full-wave delta loop, equilateral triangle
+CM Generated for user request
+CM
+CM Assumptions used:
+CM - Full-wave loop perimeter calculated as 1005 / MHz
+CM - Frequency: 29.000 MHz
+CM - Total loop perimeter: 34.66 ft (10.5629 m)
+CM - Equilateral triangle side length: 3.5210 m
+CM - Bottom side height: 3.00 m above average ground
+CM - Apex height: 6.0492 m above average ground
+CM - Feedpoint: bottom center
+CM - Wire radius modeled as 0.0006455 m, approx 16 AWG
+CM - Ground: average ground
+CM
+CM Coordinates are in meters.
+CM Loop is in the X-Z vertical plane.
+CM Feedpoint is split by a small gap and excited at bottom center.
+CM
+CE
+GW 1 31  -0.0010 0.0000 3.0000  -1.7605 0.0000 3.0000  0.0006455
+GW 2 31  -1.7605 0.0000 3.0000  0.0000 0.0000 6.0492  0.0006455
+GW 3 31  0.0000 0.0000 6.0492  1.7605 0.0000 3.0000  0.0006455
+GW 4 31  1.7605 0.0000 3.0000  0.0010 0.0000 3.0000  0.0006455
+GE 0
+GN 2 0 0 0 0.005 13
+FR 0 1 0 0 29.000 0
+EX 0 1 1 0 1.0 0
+RP 0 91 181 1000 0 0 1 2
+EN

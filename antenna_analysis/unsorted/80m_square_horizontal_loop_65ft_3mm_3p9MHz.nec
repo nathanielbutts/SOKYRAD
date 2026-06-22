@@ -1,0 +1,30 @@
+CM 80 m square horizontal loop antenna
+CM Generated for user request
+CM
+CM User-specified design:
+CM - Shape: square horizontal loop
+CM - Side length: 65.0 ft (19.8120 m)
+CM - Wire diameter: 3 mm, radius 0.0015 m
+CM - Feedpoint: middle of one side
+CM - Target frequency: 3.900 MHz
+CM
+CM Assumption used:
+CM - Loop height: 10.00 m above average ground
+CM - Ground: average ground
+CM
+CM Coordinates are in meters.
+CM Loop lies horizontally in the X-Y plane.
+CM Feedpoint is split by a small gap at the center of the south side.
+CM
+CE
+GW 1 41  -0.0100 -9.9060 10.0000  -9.9060 -9.9060 10.0000  0.0015
+GW 2 41  -9.9060 -9.9060 10.0000  -9.9060  9.9060 10.0000  0.0015
+GW 3 41  -9.9060  9.9060 10.0000   9.9060  9.9060 10.0000  0.0015
+GW 4 41   9.9060  9.9060 10.0000   9.9060 -9.9060 10.0000  0.0015
+GW 5 41   9.9060 -9.9060 10.0000   0.0100 -9.9060 10.0000  0.0015
+GE 0
+GN 2 0 0 0 0.005 13
+FR 0 1 0 0 3.900 0
+EX 0 1 1 0 1.0 0
+RP 0 91 181 1000 0 0 1 2
+EN

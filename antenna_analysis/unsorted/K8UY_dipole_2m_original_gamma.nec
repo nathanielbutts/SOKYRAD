@@ -1,0 +1,54 @@
+CM 10-element vertically polarized Yagi with gamma match
+CM Modified to correct feed/source placement and add a gamma-match starting model
+CM
+CM User-specified:
+CM - Elements made from 1/2 inch copper pipe
+CM - Boom is non-metallic and not modeled
+CM - Antenna mounted vertically
+CM - Intended drive power: 20 W
+CM
+CM Assumptions:
+CM - Frequency: 146.000 MHz
+CM - Element center height: 3.000 m above average ground
+CM - Pipe diameter: 0.01270 m, radius 0.00635 m
+CM - Elements are vertical along Z axis; boom direction is X axis
+CM - Driven element is now modeled as one continuous wire
+CM - Gamma match is modeled as a parallel gamma rod with shorting strap
+CM - Gamma rod spacing from driven element: 50 mm
+CM - Gamma rod length: 300 mm
+CM - Gamma series capacitor starting value: 10.0 pF
+CM - Tune gamma rod length, spacing, and capacitance in EZNEC for best 50-ohm match
+CM - Ground: average ground
+CM
+CM Element table:
+CM - Reflector: x=0 mm, length=965 mm
+CM - Driver: x=470 mm, length=875 mm
+CM - Director 1: x=750 mm, length=815 mm
+CM - Director 2: x=1030 mm, length=765 mm
+CM - Director 3: x=1310 mm, length=735 mm
+CM - Director 4: x=1590 mm, length=705 mm
+CM - Director 5: x=1870 mm, length=665 mm
+CM - Director 6: x=2150 mm, length=640 mm
+CM - Director 7: x=2430 mm, length=610 mm
+CM - Director 8: x=2710 mm, length=580 mm
+CE
+GW 1 21 0.0000 0.0000 2.5175 0.0000 0.0000 3.4825 0.00635
+GW 2 21 0.4700 0.0000 2.5625 0.4700 0.0000 3.4375 0.00635
+GW 3 21 0.7500 0.0000 2.5925 0.7500 0.0000 3.4075 0.00635
+GW 4 21 1.0300 0.0000 2.6175 1.0300 0.0000 3.3825 0.00635
+GW 5 21 1.3100 0.0000 2.6325 1.3100 0.0000 3.3675 0.00635
+GW 6 21 1.5900 0.0000 2.6475 1.5900 0.0000 3.3525 0.00635
+GW 7 21 1.8700 0.0000 2.6675 1.8700 0.0000 3.3325 0.00635
+GW 8 21 2.1500 0.0000 2.6800 2.1500 0.0000 3.3200 0.00635
+GW 9 21 2.4300 0.0000 2.6950 2.4300 0.0000 3.3050 0.00635
+GW 10 21 2.7100 0.0000 2.7100 2.7100 0.0000 3.2900 0.00635
+GW 11 11 0.4700 0.0500 3.0000 0.4700 0.0500 3.3000 0.00317
+GW 12 1 0.4700 0.0000 3.3000 0.4700 0.0500 3.3000 0.00317
+GW 13 1 0.4700 0.0000 3.0000 0.4700 0.0500 3.0000 0.00317
+GE 0
+GN 2 0 0 0 0.005 13
+FR 0 1 0 0 146.000 0
+LD 0 13 1 1 0 0 1e-11
+EX 0 13 1 0 31.6228 0
+RP 0 91 181 1000 0 0 1 2
+EN

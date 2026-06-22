@@ -1,0 +1,26 @@
+CM 10 m 3-element Yagi, vertical polarization
+CM Generated for user request
+CM
+CM Assumptions used:
+CM - Design frequency: 28.4 MHz
+CM - Elements are simple straight elements on a non-conductive boom
+CM - Boom centered at y = 0, with element centers at height: 10.0 m above average ground
+CM - Reflector length: 5.45 m
+CM - Driven element length: 5.25 m
+CM - Director length: 5.05 m
+CM - Reflector to driven spacing: 1.45 m
+CM - Driven to director spacing: 1.45 m
+CM - Wire radius modeled as 0.0040 m
+CM - Polarization: vertical
+CM
+CE
+GW 1 21  0.000 0.000 7.275  0.000 0.000 12.725  0.0040
+GW 2 21  1.450 0.000 9.999  1.450 0.000 7.375  0.0040
+GW 3 21  1.450 0.000 10.001  1.450 0.000 12.625  0.0040
+GW 4 21  2.900 0.000 7.475  2.900 0.000 12.525  0.0040
+GE 0
+GN 2 0 0 0 0.005 13
+FR 0 1 0 0 28.4 0
+EX 0 2 1 0 1.0 0
+RP 0 91 181 1000 0 0 1 2
+EN

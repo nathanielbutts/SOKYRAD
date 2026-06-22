@@ -1,0 +1,26 @@
+CM 10 m quarter-wave ground-plane antenna for 28.4 MHz
+CM Generated for user request
+CM
+CM Assumptions used:
+CM - Feedpoint height: 10 ft (3.0480 m) above average ground
+CM - Vertical radiator length: 2.5610 m
+CM - Four radials, each 2.5610 m long
+CM - Radials droop downward 45.0 degrees from horizontal
+CM - Wire radius modeled as 0.0006455 m (approx. 16 AWG)
+CM - Ground: average ground
+CM
+CM Coordinates are in meters.
+CM Radiator is fed at the base against the four radials.
+CM
+CE
+GW 1 21   0.0000  0.0000 3.0480   0.0000  0.0000 5.6090  0.0006455
+GW 2 21   0.0000  0.0000 3.0480   1.8109  0.0000 1.2371  0.0006455
+GW 3 21   0.0000  0.0000 3.0480  -1.8109  0.0000 1.2371  0.0006455
+GW 4 21   0.0000  0.0000 3.0480   0.0000  1.8109 1.2371  0.0006455
+GW 5 21   0.0000  0.0000 3.0480   0.0000 -1.8109 1.2371  0.0006455
+GE 0
+GN 2 0 0 0 0.005 13
+FR 0 1 0 0 28.4 0
+EX 0 1 1 0 1.0 0
+RP 0 91 181 1000 0 0 1 2
+EN

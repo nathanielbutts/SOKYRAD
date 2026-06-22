@@ -1,0 +1,18 @@
+CM 2m Moxon Rectangle for 145.0 MHz
+CM Approximate starting NEC-2 model; tune dimensions for final SWR/pattern.
+CM Coordinate system: X=width, Y=front/back, Z=height above ground.
+CM Dimensions: A width=0.782m, B driven tail=0.108m, C gap=0.035m, D reflector tail=0.143m, E spacing=0.286m
+CE
+GW 1 31 -0.3910 0.0000 6.0000 0.3910 0.0000 6.0000 0.00160
+GW 2 7 -0.3910 0.0000 6.0000 -0.3910 -0.1080 6.0000 0.00160
+GW 3 7 0.3910 0.0000 6.0000 0.3910 -0.1080 6.0000 0.00160
+GW 4 31 -0.3910 -0.2860 6.0000 0.3910 -0.2860 6.0000 0.00160
+GW 5 7 -0.3910 -0.2860 6.0000 -0.3910 -0.1430 6.0000 0.00160
+GW 6 7 0.3910 -0.2860 6.0000 0.3910 -0.1430 6.0000 0.00160
+GN 2 0 0 0 13 0.005
+GE 0
+LD 5 0 0 0 58000000
+EX 0 1 16 0 1 0
+FR 0 1 0 0 145.000 0
+RP 0 1 361 1000 5 0 0 1 0 1
+EN
