@@ -1,0 +1,41 @@
+CM 10-element vertically polarize
+CM
+CM ! Written by EZNEC/Pro+ v. 7.0 in NEC-2 format.
+CM
+CM Generated from user-specified dimensions
+CM 
+CM User-specified: - Elements made from 1/2 inch copper pipe - Boom is
+CM non-metallic and not modeled - Antenna mounted vertically - Intended
+CM drive power: 20 W
+CM 
+CM Assumptions: - Frequency: 146.000 MHz - Element center height: 3.000 m
+CM above average ground - Pipe diameter: 0.01270 m, radius 0.00635 m -
+CM Elements are vertical along Z axis; boom direction is X axis - Driven
+CM element split at center and excited with ideal voltage source - Ground:
+CM average ground
+CM 
+CM Element table: - Reflector: x=0 mm, length=965 mm - Driver: x=470 mm,
+CM length=875 mm - Director 1: x=750 mm, length=815 mm - Director 2: x=1030
+CM mm, length=765 mm - Director 3: x=1310 mm, length=735 mm - Director 4:
+CM x=1590 mm, length=705 mm - Director 5: x=1870 mm, length=665 mm -
+CM Director 6: x=2150 mm, length=640 mm - Director 7: x=2430 mm, length=610
+CM mm - Director 8: x=2710 mm, length=580 mm
+CE
+GW 1,21,0.,0.,4.0175,0.,0.,4.9825,.00635
+GW 2,11,.47,0.,4.0625,.47,0.,4.498,.00635
+GW 3,11,.47,0.,4.502,.47,0.,4.9375,.00635
+GW 4,21,.75,0.,4.0925,.75,0.,4.9075,.00635
+GW 5,21,1.03,0.,4.1175,1.03,0.,4.8825,.00635
+GW 6,21,1.31,0.,4.1325,1.31,0.,4.8675,.00635
+GW 7,21,1.59,0.,4.1475,1.59,0.,4.8525,.00635
+GW 8,21,1.87,0.,4.1675,1.87,0.,4.8325,.00635
+GW 9,21,2.15,0.,4.18,2.15,0.,4.82,.00635
+GW 10,21,2.43,0.,4.195,2.43,0.,4.805,.00635
+GW 11,21,2.71,0.,4.21,2.71,0.,4.79,.00635
+GE 1
+LD 5,0,1,211,5.7471E+7,1.
+FR 0,1,0,0,146.
+GN 2,0,0,0,13.,.005
+EX 0,2,11,0,31.6228,0.
+RP 0,19,73,1001,0.,0.,5.,5.,0.
+EN
