@@ -226,8 +226,8 @@ var aIMG = [
       "I65@22",
       "I65@28",
       "I65@32",
-      "BG_WEST",
-      "231@I165"
+      "VETERANS AND MORGANTOWN",
+      "TWIN BRIDGES"
     ],
     "https://www.trimarc.org/images/milestone/CCTV_03_65_0223.jpg",
     "https://www.trimarc.org/images/milestone/CCTV_03_KY446_0002.jpg",
@@ -251,8 +251,12 @@ var aIMG = [
 
 // Grid 4,3
   [
-    "CH, CME & Type IV noise",
-    "https://iswa.ccmc.gsfc.nasa.gov/iswa_data_tree/model/heliosphere/wsa-enlil-cone/animation-cme-density-earth/2026/07/20260724_011900_2.0_afwa_anim.tim-den.gif"
+    [
+      "CH, CME & Type IV noise",
+      "160m Noise"
+    ],
+    "https://iswa.ccmc.gsfc.nasa.gov/iswa_data_tree/model/heliosphere/wsa-enlil-cone/animation-cme-density-earth/2026/07/20260724_011900_2.0_afwa_anim.tim-den.gif",
+    "https://iswa.ccmc.gsfc.nasa.gov/IswaSystemWebApp/FileRedirect?dataID=221"
   ],
 
 // Grid 4,4
@@ -280,10 +284,10 @@ var tileDelay = [
   10100,  // Grid 3,2
   10100,  // Grid 3,3
   10100,  // Grid 3,4
-  5000,  // Grid 4,1
-  5000,  // Grid 4,2
-  5000,  // Grid 4,3
-  5000  // Grid 4,4
+  10100,  // Grid 4,1
+  10100,  // Grid 4,2
+  10100,  // Grid 4,3
+  10100   // Grid 4,4
 ];
 
 // CUT END
