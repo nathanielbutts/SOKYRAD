@@ -1,0 +1,37 @@
+CM 15m half-square with jumper-added 20m extension
+CM Geometry based on user sketch:
+CM - Black wires = permanent 15m half-square, total wire length 13.49 m
+CM - Blue wires = jumper-connected 20m extension, total combined length 20.14 m
+CM - Bottoms of original 15m vertical legs and 20m extension legs at same height
+CM - Units: meters
+CM
+CM Coordinate system:
+CM X = horizontal direction along top wire
+CM Y = 0 plane
+CM Z = height above ground
+CM
+CM Dimensions used:
+CM 15m half-square total = 13.49 m -> verticals 3.3725 m, top 6.745 m
+CM 20m half-square total = 20.14 m -> verticals 5.035 m, top 10.070 m
+CM Added length total = 6.65 m
+CM   left lower vertical jumper = 1.6625 m
+CM   right top horizontal jumper = 1.6625 m
+CM   right outside vertical extension = 5.035 m
+CM
+CM Feedpoint is at bottom of left vertical, between wire 1 and a short radial/ground stub.
+CM For free-space modeling, replace GE 2/GN line with GE 0 and adjust the feed as desired.
+CE
+GW 1 21 0.000 0.000 1.6625 0.000 0.000 5.0350 0.00102
+GW 2 21 0.000 0.000 5.0350 6.745 0.000 5.0350 0.00102
+GW 3 21 6.745 0.000 5.0350 6.745 0.000 1.6625 0.00102
+GW 4 9  0.000 0.000 1.6625 0.000 0.000 0.0000 0.00102
+GW 5 9  6.745 0.000 5.0350 8.4075 0.000 5.0350 0.00102
+GW 6 31 8.4075 0.000 5.0350 8.4075 0.000 0.0000 0.00102
+GW 7 1  0.000 0.000 1.6625 -0.050 0.000 1.6625 0.00102
+GE 2
+GN 2 0 0 0 13 0.005
+LD 5 0 0 0 58000000
+FR 0 3 0 0 14.2 3.5
+EX 0 7 1 0 1 0
+RP 0 181 361 1000 0 0 1 1
+EN

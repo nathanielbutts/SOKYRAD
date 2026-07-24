@@ -251,8 +251,8 @@ var aIMG = [
 
 // Grid 4,3
   [
-    "Traffic Cam",
-    "blob:https://smartway.tn.gov/48523bee-41de-48de-9cba-ceba435478bd"
+    "CH, CME & Type IV noise",
+    "https://iswa.ccmc.gsfc.nasa.gov/iswa_data_tree/model/heliosphere/wsa-enlil-cone/animation-cme-density-earth/2026/07/20260724_011900_2.0_afwa_anim.tim-den.gif"
   ],
 
 // Grid 4,4
