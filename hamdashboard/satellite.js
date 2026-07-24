@@ -42,7 +42,7 @@ var aURL = [
   [
     "2196F3",
     "WINDY",
-    "https://embed.windy.com/embed2.html?lat=44.01&lon=-79.45&width=900&detailLat=44.01&detailLon=-79.45&height=600&zoom=8&level=surface&overlay=clouds&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1",
+    "https://embed.windy.com/embed2.html?lat=36.99&lon=-86.44&width=900&detailLat=36.99&detailLon=-86.44&height=600&zoom=7&level=surface&overlay=clouds&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricRain=in&metricTemp=°F&metricWind=mph&radarRange=-1",
     "1",
     "R"
   ]
